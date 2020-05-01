@@ -4,8 +4,8 @@ function b2cCustomProvider (options) {
     protocol: 'oauth2',
     useParamsAuth: true,
     auth: `${options.uri}/oauth2/v2.0/authorize`,
-    token: `${options.uri}/oauth2/v2.0/token`,
-    scope: [`openid+${options.clientId}`],
+    token: `${options.uri}/oauth2/v2.0/token?p=${options.policy}`,
+    scope: [`openid ${options.clientId}`],
     profile: async function (credentials, params, get) {
       // this should be replaced with a call to get user info
       const profile = await Promise.resolve({ email: 'test@mail', given_name: 'test', family_name: 'user' })

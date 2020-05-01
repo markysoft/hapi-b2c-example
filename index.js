@@ -10,7 +10,8 @@ const Hapi = require('@hapi/hapi')
 const b2cConfig = {
   uri: process.env.B2C_URI,
   clientId: process.env.B2C_CLIENT_ID,
-  clientSecret: process.env.B2C_CLIENT_SECRET
+  clientSecret: process.env.B2C_CLIENT_SECRET,
+  policy: process.env.B2C_POLICY
 }
 const internals = {}
 
@@ -32,17 +33,17 @@ internals.start = async function () {
     provider: 'b2c-custom',
     config: {
       uri: b2cConfig.uri,
-      clientId: b2cConfig.clientId
+      clientId: b2cConfig.clientId,
+      policy: b2cConfig.policy
     },
     providerParams: {
-      p: 'b2c_1a_ff_demo_token_scopeaslist',
-      response_type: 'token+id_token',
+      p: b2cConfig.policy,
+      response_type: 'code',
       nonce: 'defaultNonce',
       prompt: 'login'
     },
     password: 'cookie_encryption_password_secure',
     isSecure: false,
-    scope: ['email', 'profile', 'openid'],
     location: 'http://localhost:3006',
     clientId: b2cConfig.clientId,
     clientSecret: b2cConfig.clientSecret
