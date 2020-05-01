@@ -1,0 +1,35 @@
+{
+  "name": "okta",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "standard",
+    "start": "node index.js",
+    "start-watch": "nodemon index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@hapi/bell": "^12.0.0",
+    "@hapi/cookie": "^11.0.1",
+    "@hapi/hapi": "^19.1.1",
+    "dotenv": "^8.2.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.2",
+    "standard": "^14.3.3"
+  },
+  "standard": {
+    "globals": [
+      "describe",
+      "beforeEach",
+      "expect",
+      "test",
+      "afterEach",
+      "jest",
+      "beforeAll",
+      "afterAll"
+    ]
+  }
+}
