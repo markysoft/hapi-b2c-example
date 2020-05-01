@@ -79,9 +79,7 @@ internals.start = async function () {
     options: {
       auth: 'session',
       handler: function (request, h) {
-        // Return a message using the information from the session
-
-        return 'Hello, ' + request.auth.credentials.profile.username + '!'
+        return `Hello ${request.auth.credentials.profile.givenName} ${request.auth.credentials.profile.surname}!`
       }
     }
   })
