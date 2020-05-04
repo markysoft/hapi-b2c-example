@@ -6,7 +6,7 @@ function b2cCustomProvider (options) {
     protocol: 'oauth2',
     useParamsAuth: true,
     auth: `${options.uri}/oauth2/v2.0/authorize`,
-    token: `${options.uri}/oauth2/v2.0/token?p=${options.policy}`,
+    token: `${options.uri}/oauth2/v2.0/token`,
     scope: [`openid ${options.clientId}`],
     profile: async function (credentials, params, get) {
       const { givenName, surname } = jwtDecode(credentials.token)
